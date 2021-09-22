@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "dms"
+  "defaultProject": "dms",
+  "cli": {
+    "analytics": false
+  }
 }
