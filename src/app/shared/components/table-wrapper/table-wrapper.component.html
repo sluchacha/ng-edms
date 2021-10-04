@@ -1,0 +1,72 @@
+<table
+  datatable
+  [dtOptions]="dtOptions"
+  [dtTrigger]="dtTrigger"
+  class="mydatatable table table-striped table-bordered"
+  style="width: 100%"
+>
+  <thead class="thead-light">
+    <tr
+      *ngIf="
+        tableConfig.complexHeaders && tableConfig.complexHeaders.length > 0
+      "
+    >
+      <th
+        *ngFor="let colHead of tableConfig.complexHeaders"
+        [attr.colspan]="colHead.colspan"
+        [attr.rowspan]="colHead.rowspan"
+      >
+        {{ colHead.title }}
+      </th>
+    </tr>
+    <tr>
+      <ng-container *ngFor="let colHead of tableConfig.columns">
+        <th *ngIf="!colHead?.ignore">{{ colHead.title }}</th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody *ngIf="tableContent && tableContent.length > 0">
+    <tr *ngFor="let rowData of tableContent">
+      <td *ngFor="let colHead of tableConfig.columns">
+        <ng-container
+          *ngIf="
+            colHead.dataProperty && colHead.dataProperty !== 'ROW_ACTIONS';
+            else action_content
+          "
+        >
+          {{ rowData[colHead.dataProperty] }}
+        </ng-container>
+        <ng-template #action_content> &nbsp; </ng-template>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot class="thead-light">
+    <tr>
+      <th *ngFor="let colHead of tableConfig.columns; let i = index">
+        {{ colHead.title }}
+      </th>
+    </tr>
+  </tfoot>
+</table>
+<!-- 
+
+  <div
+            class="d-flex justify-content-end"
+            onclick="event.stopPropagation();"
+          >
+            <ng-container *ngFor="let action of tableConfig.rowActions">
+              <button
+                *ngIf="action.showOption(rowData)"
+                class="btn btn-sm"
+                [ngClass]="action.class ? action.class : 'btn-secondary'"
+                type="button"
+                (click)="
+                  onRowActionClicked($event, action.actionIdToReturn, rowData)
+                "
+              >
+                {{ action.label }}
+              </button>
+              &nbsp;
+            </ng-container>
+          </div>
+ -->

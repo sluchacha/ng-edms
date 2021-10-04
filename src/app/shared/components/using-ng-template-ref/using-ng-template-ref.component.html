@@ -1,0 +1,42 @@
+<p>Using Angular Template Ref</p>
+
+<blockquote>Please click on Action button</blockquote>
+<p class="text-danger">
+  You clicked on: <strong>{{ message }}</strong>
+</p>
+<br />
+<table
+  datatable
+  [dtOptions]="dtOptions"
+  [dtTrigger]="dtTrigger"
+  class="table table-stripe table-bordered"
+></table>
+<!-- <thead>
+    <tr>
+      <ng-container *ngFor="let colHead of columns">
+        <th>{{ colHead.title }}</th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rowData of applicants">
+      <td *ngFor="let colHead of columns" onclick="return false;">
+        <ng-container
+          *ngIf="
+            colHead?.data && colHead?.title !== 'Actions';
+            else action_content
+          "
+        >
+          {{ rowData[colHead.data] }}
+        </ng-container>
+        <ng-template #action_content> &nbsp; </ng-template>
+      </td>
+    </tr>
+    <tr *ngIf="applicants?.length == 0">
+      <td colspan="7" class="no-data-available">No data!</td>
+    </tr>
+  </tbody> -->
+
+<ng-template #demoNg let-data="adtData" let-emitter="captureEvents">
+  <demo-ng [data]="data" (emitter)="emitter($event)"></demo-ng>
+</ng-template>

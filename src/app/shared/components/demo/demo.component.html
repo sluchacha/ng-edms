@@ -1,0 +1,9 @@
+<p>Demo</p>
+
+<table-wrapper
+  #applicantsTable
+  [tableConfig]="tableConfig"
+  [tableContent]="applicants"
+  [settings]="settings"
+  (onRowActionClicked)="rowClicked($event)"
+></table-wrapper>

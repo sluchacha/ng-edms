@@ -26,14 +26,64 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "src/styles.scss",
+
+              "node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css",
+              "node_modules/datatables.net-autofill-bs5/css/autoFill.bootstrap5.min.css",
+              "node_modules/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css",
+              "node_modules/datatables.net-colreorder-bs5/css/colReorder.bootstrap5.min.css",
+              "node_modules/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css",
+              "node_modules/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css",
+              "node_modules/datatables.net-keytable-bs5/css/keyTable.bootstrap5.min.css",
+              "node_modules/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css",
+              "node_modules/datatables.net-rowgroup-bs5/css/rowGroup.bootstrap5.min.css",
+              "node_modules/datatables.net-rowreorder-bs5/css/rowReorder.bootstrap5.min.css",
+              "node_modules/datatables.net-scroller-bs5/css/scroller.bootstrap5.min.css",
+              "node_modules/datatables.net-searchbuilder-bs5/css/searchBuilder.bootstrap5.min.css",
+              "node_modules/datatables.net-select-bs5/css/select.bootstrap5.min.css",
+              "node_modules/datatables.net-searchpanes-bs5/css/searchPanes.bootstrap5.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+
+              "node_modules/datatables.net/js/jquery.dataTables.min.js",
+              "node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js",
+
+              "node_modules/datatables.net-autofill/js/dataTables.autoFill.min.js",
+              "node_modules/datatables.net-autofill-bs5/js/autoFill.bootstrap5.min.js",
+
+              "node_modules/jszip/dist/jszip.min.js",
+              "node_modules/pdfmake/build/pdfmake.min.js",
+              "node_modules/pdfmake/build/vfs_fonts.js",
+              "node_modules/datatables.net-buttons/js/dataTables.buttons.min.js",
+              "node_modules/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js",
+              "node_modules/datatables.net-buttons/js/buttons.colVis.min.js",
+              "node_modules/datatables.net-buttons/js/buttons.flash.min.js",
+              "node_modules/datatables.net-buttons/js/buttons.html5.min.js",
+              "node_modules/datatables.net-buttons/js/buttons.print.min.js",
+
+              "node_modules/datatables.net-colreorder/js/dataTables.colReorder.min.js",
+              "node_modules/datatables.net-datetime/js/dataTables.dateTime.js",
+              "node_modules/datatables.net-fixedcolumns/js/dataTables.fixedColumns.min.js",
+              "node_modules/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js",
+              "node_modules/datatables.net-keytable/js/dataTables.keyTable.min.js",
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.min.js",
+              "node_modules/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js",
+              "node_modules/datatables.net-rowgroup/js/dataTables.rowGroup.min.js",
+              "node_modules/datatables.net-rowreorder/js/dataTables.rowReorder.min.js",
+              "node_modules/datatables.net-scroller/js/dataTables.scroller.min.js",
+              "node_modules/datatables.net-searchbuilder/js/dataTables.searchBuilder.min.js",
+              "node_modules/datatables.net-searchbuilder-bs5/js/searchBuilder.bootstrap5.min.js",
+              "node_modules/datatables.net-searchpanes/js/dataTables.searchPanes.min.js",
+              "node_modules/datatables.net-searchpanes-bs5/js/searchPanes.bootstrap5.min.js",
+              "node_modules/datatables.net-select/js/dataTables.select.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -89,13 +139,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
@@ -107,9 +152,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
