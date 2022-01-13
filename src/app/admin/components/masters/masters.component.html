@@ -1,0 +1,49 @@
+<div class="card border-success mb-3">
+  <div class="card-header bg-transparent border-success">
+    <h5 class="card-title text-center text-success">Masters</h5>
+  </div>
+  <div class="card-body text-success">
+    <div class="row">
+      <div class="col-md-2">
+        <ul class="list-group">
+          <li
+            *ngFor="let item of menuItems"
+            [class.active]="activeItem === item.itemName"
+            class="list-group-item list-group-item-action"
+            (click)="menuItemClick(item)"
+          >
+            {{ item.displayName }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-10">
+        <ul class="nav nav-tabs" role="tablist">
+          <li *ngFor="let tab of tabs" class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              [class.active]="activeItem === tab.itemName"
+              data-bs-toggle="tab"
+              [attr.data-bs-target]="'#' + tab.itemName"
+              role="tab"
+              >{{ tab.displayName }}</a
+            >
+            <!-- <span class="fa fa-window-close" (click)="onCloseClick(tab)">X</span> -->
+          </li>
+        </ul>
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            *ngFor="let tab of tabs"
+            class="tab-pane fade show"
+            [class.active]="activeItem === tab.itemName"
+            role="tabpanel"
+            [id]="tab.itemName"
+          >
+            <div class="p-3">
+              <ng-template componentLoader></ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

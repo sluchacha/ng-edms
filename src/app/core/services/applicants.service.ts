@@ -2,16 +2,19 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/operators';
+import { DataService } from 'src/app/shared/services/data.service';
 
-import { Applicant } from '../models/applicant';
+import { Applicant } from '../../core/models/applicant';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ApplicantsService {
-  constructor(private http: HttpClient) {}
+export class ApplicantsService extends DataService<Applicant> {
+  constructor(http: HttpClient) {
+    super(`http://localhost:3000/api/applicants`, http);
+  }
 
-  getAll(params?: any): Observable<Applicant[]> {
+  /* getAll(params?: any): Observable<Applicant[]> {
     if (params) console.log(params, this.getParams(params));
     console.log(this.objectToHttpParams(params));
     return this.http
@@ -19,7 +22,7 @@ export class ApplicantsService {
       .pipe(
         map((data: any) => data.map((item: any) => this.fromServerModel(item)))
       );
-  }
+  } */
 
   protected fromServerModel(json: Partial<Applicant>): Applicant {
     return new Applicant(json);

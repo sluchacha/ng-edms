@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 import { ADTSettings } from 'angular-datatables/src/models/settings';
 import { Subject } from 'rxjs';
-import { Applicant } from '../../models/applicant';
+import { ApplicantsService } from 'src/app/core/services/applicants.service';
 import { DemoNgComponentEventType } from '../../models/demo-ng-component-event-type';
-import { ApplicantsService } from '../../services/applicants.service';
+
 import { DemoNgComponent } from '../demo-ng/demo-ng.component';
 
 @Component({

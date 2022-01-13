@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-9 col-sm-9">
+    <div class="card border-success mb-3">
+      <div class="card-header bg-transparent border-success">
+        <h5 class="card-title text-center">List of Applicants</h5>
+      </div>
+      <div class="card-body text-success">
+        <table
+          datatable
+          [dtOptions]="dtOptions"
+          [dtTrigger]="dtTrigger"
+          class="table table-hover table-bordered mydatatable"
+          style="width: 100%"
+        >
+          <tfoot>
+            <tr>
+              <th *ngFor="let colHead of dtOptions.columns">
+                {{ colHead.title }}
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="card-footer bg-transparent border-success">Footer</div>
+    </div>
+  </div>
+  <div class="col-3 col-sm-3">
+    <applicant-form [applicant_id]="selectedApplicantId"></applicant-form>
+  </div>
+</div>

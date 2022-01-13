@@ -15,15 +15,13 @@
                   <a class="nav-link" [routerLink]=" [ '/admin', 'dashboard' ] ">Dashboard</a>
               </li> -->
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/about']">About</a>
+          <a class="nav-link" [routerLink]="['about']">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/admin', 'masters']">Masters</a>
+          <a class="nav-link" [routerLink]="['masters']">Masters</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/core', 'applicants']"
-            >Applications</a
-          >
+          <a class="nav-link" [routerLink]="['applicants']">Applicants</a>
         </li>
         <!-- <li class="nav-item">
                   <a class="nav-link" href="#">{{loginService.currentUserName}}</a>
@@ -32,15 +30,13 @@
                   <a class="nav-link" href="#" (click)="loginService.Logout()">Logout</a>
               </li> -->
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']">Login</a>
+          <a class="nav-link" [routerLink]="['login']">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/signup']">Sign Up</a>
+          <a class="nav-link" [routerLink]="['register']">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/admin', 'dashboard']"
-            >Dashboard</a
-          >
+          <a class="nav-link" [routerLink]="['applications']">Applications</a>
         </li>
       </ul>
     </div>

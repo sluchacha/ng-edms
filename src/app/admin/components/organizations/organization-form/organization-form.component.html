@@ -1,0 +1,59 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header">
+    <h4 class="modal-title">{{ title }}</h4>
+    <!-- <button
+    type="button"
+    class="btn-close close"
+    aria-label="Close"
+    (click)="bsModalRef.hide()"
+  >
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button> -->
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+      (click)="bsModalRef.hide()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <label for="code" class="form-label">Code</label>
+      <input
+        class="form-control form-control-sm"
+        id="code"
+        formControlName="code"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        class="form-control form-control-sm"
+        id="name"
+        formControlName="name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input
+        class="form-control form-control-sm"
+        id="description"
+        formControlName="description"
+      />
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">
+      Close
+    </button>
+    <button
+      *ngIf="submitBtnName"
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!form.valid"
+    >
+      {{ submitBtnName }}
+    </button>
+  </div>
+</form>

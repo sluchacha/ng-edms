@@ -1,0 +1,166 @@
+<div class="row">
+  <div class="col-md-8 col-xl-6 mx-auto">
+    <form novalidate>
+      <div class="card mt-1">
+        <div class="card-header bg-success text-white">
+          <h5 class="card-title my-0">Sign Up</h5>
+        </div>
+
+        <div class="card-body">
+          <div class="form-group form-row">
+            <label for="firstName" class="col-md-4 col-form-label"
+              >First Name:</label
+            >
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="First Name"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label for="lastName" class="col-md-4 col-form-label"
+              >Last Name:</label
+            >
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Last Name"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label for="email" class="col-md-4 col-form-label">Email:</label>
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="email"
+                [(ngModel)]="user.email"
+                placeholder="Email"
+                class="form-control"
+                autofocus
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label for="mobile" class="col-md-4 col-form-label">Mobile:</label>
+            <div class="col-md-8">
+              <input
+                type="text"
+                name="mobile"
+                id="mobile"
+                placeholder="Mobile"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label for="dateOfBirth" class="col-md-4 col-form-label"
+              >Date of Birth:</label
+            >
+            <div class="col-md-8">
+              <input
+                type="date"
+                name="dateOfBirth"
+                id="dateOfBirth"
+                placeholder="Date of Birth"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label for="password" class="col-md-4 col-form-label"
+              >Password:</label
+            >
+            <div class="col-md-8">
+              <input
+                type="password"
+                name="password"
+                [(ngModel)]="user.password"
+                placeholder="Password"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label for="confirmPassword" class="col-md-4 col-form-label"
+              >Confirm Password:</label
+            >
+            <div class="col-md-8">
+              <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label class="col-md-4 col-form-label">Gender:</label>
+            <div class="col-md-8">
+              <div
+                class="form-check-label form-check-inline"
+                *ngFor="let gender of genders"
+              >
+                <input
+                  type="radio"
+                  name="gender"
+                  [id]="gender"
+                  [value]="gender"
+                  class="form-check-input"
+                />
+                <label [for]="gender" class="form-check-label">{{
+                  gender
+                }}</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label for="departmentID" class="col-md-4 col-form-label"
+              >Department:</label
+            >
+            <div class="col-md-8">
+              <select
+                name="departmentID"
+                id="departmentID"
+                class="form-control"
+              >
+                <option value="null">Please Select</option>
+                <option
+                  *ngFor="let department of departments"
+                  [value]="department.departmentID"
+                >
+                  {{ department.departmentName }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <!-- {{signUpForm.value | json}} -->
+        </div>
+
+        <div class="card-footer">
+          <button class="btn btn-success float-right" (click)="register()">
+            Create Account
+          </button>
+          <div class="text-danger">{{ registerError }}</div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

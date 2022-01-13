@@ -1,0 +1,48 @@
+<form class="form-floating" #loginForm="ngForm" autocomplete="off" novalidate>
+  <div class="row">
+    <div class="col-xl-5 col-md-6 mx-auto">
+      <div class="card text-white bg-success mt-4">
+        <div class="card-header">
+          <h5 class="card-title">Login</h5>
+        </div>
+        <div class="card-body">
+          <!-- <div *ngIf="loginError !== ''" class="text-danger text-right">
+            {{ loginError }}&nbsp;
+          </div> -->
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="username"
+              name="username"
+              [(ngModel)]="form.username"
+              autofocus
+            />
+            <label for="username">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              [(ngModel)]="form.password"
+            />
+            <label for="password">Password</label>
+          </div>
+        </div>
+
+        <div class="card-footer text-right">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="login()"
+            [disabled]="loginForm.invalid"
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

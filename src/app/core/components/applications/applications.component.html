@@ -1,0 +1,323 @@
+<form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+  <div class="card border-success mb-3">
+    <div class="card-header bg-transparent border-success">
+      <h5 class="card-title text-center">Application Form</h5>
+    </div>
+    <div class="card-body text-success">
+      <div class="mb-3">
+        <label for="job" class="form-label">Job</label>
+        <input
+          class="form-control form-control-sm"
+          id="job"
+          placeholder="job"
+          formControlName="job"
+        />
+      </div>
+      <div class="mb-3">
+        <button
+          type="button"
+          class="btn btn-sm btn-primary mb-3 btn-block"
+          (click)="insertApplicant()"
+        >
+          <fa-icon [icon]="['fas', 'plus']" size="sm" class="mr-2"></fa-icon>
+          Insert Applicant
+        </button>
+      </div>
+      <!-- Applicant -->
+      <div class="row mb-3" formGroupName="applicant">
+        <div class="mb-3">
+          <label for="fullname" class="form-label">Full Name</label>
+          <input
+            class="form-control form-control-sm"
+            id="fullname"
+            placeholder="fullname"
+            formControlName="fullname"
+          />
+        </div>
+        <fieldset class="row mb-3">
+          <legend class="col-form-label col-sm-3 pt-0">Gender</legend>
+          <div class="col-sm-9">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="male"
+                value="M"
+                formControlName="gender"
+              />
+              <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                id="female"
+                value="F"
+                formControlName="gender"
+              />
+              <label class="form-check-label" for="female">Female</label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="mb-3">
+          <label for="dob" class="form-label">Date of Birth</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            placeholder="Date of Birth"
+            bsDatepicker
+            formControlName="dob"
+            [bsConfig]="bsConfig"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nationalId" class="form-label">National ID</label>
+          <input
+            class="form-control form-control-sm"
+            id="nationalId"
+            placeholder="National ID"
+            formControlName="nationalId"
+          />
+        </div>
+        <div class="group-gap" formArrayName="telephone">
+          <h5 class="mb-3">Telephones</h5>
+          <div class="mb-3">
+            <button
+              type="button"
+              class="btn btn-sm btn-success mb-3 btn-block"
+              (click)="addTelephone()"
+            >
+              <fa-icon
+                [icon]="['fas', 'plus']"
+                size="sm"
+                class="mr-2"
+              ></fa-icon>
+              Add Telephone
+            </button>
+            <ol class="">
+              <li *ngFor="let item of telephones.controls; let i = index">
+                <div class="input-group mb-2">
+                  <input
+                    class="form-control form-control-sm"
+                    id="telephone-{{ i }}"
+                    placeholder="Telephone {{ i + 1 }}"
+                    [formControlName]="i"
+                  />
+                  <button
+                    class="btn btn-sm btn-outline-danger"
+                    type="button"
+                    id="btnTelephone-{{ i }}"
+                    (click)="deleteTelephone(i)"
+                  >
+                    <fa-icon [icon]="['fas', 'trash-alt']" size="sm"></fa-icon>
+                  </button>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="county" class="form-label">County</label>
+          <input
+            class="form-control form-control-sm"
+            id="county"
+            placeholder="county"
+            formControlName="county"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="subcounty" class="form-label">Subcounty</label>
+          <input
+            class="form-control form-control-sm"
+            id="subcounty"
+            placeholder="subcounty"
+            formControlName="subcounty"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="ward" class="form-label">Ward</label>
+          <input
+            class="form-control form-control-sm"
+            id="ward"
+            placeholder="ward"
+            formControlName="ward"
+          />
+        </div>
+      </div>
+      <!-- End Applicant -->
+      <!-- Qualification -->
+      <div class="row mb-3">
+        <div class="group-gap" formArrayName="qualifications">
+          <h5 class="mb-3">Qualifications</h5>
+          <div class="mb-3">
+            <button
+              type="button"
+              class="btn btn-sm btn-success mb-3 btn-block"
+              (click)="addQualification()"
+            >
+              <fa-icon
+                [icon]="['fas', 'plus']"
+                size="sm"
+                class="mr-2"
+              ></fa-icon>
+              Add Qualification
+            </button>
+            <div
+              class="card mb-2"
+              *ngFor="let item of qualifications.controls; let i = index"
+              [formGroupName]="i"
+            >
+              <div class="card-body">
+                <div class="card-title">Qualification {{ i + 1 }}</div>
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <select
+                      class="form-select form-select-sm"
+                      placeholder="Award"
+                      formControlName="award"
+                    >
+                      <!-- <option selected>Select Award</option> -->
+                      <option *ngFor="let item of allAwards" [value]="item">
+                        {{ item }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      class="form-control form-control-sm"
+                      placeholder="Grade"
+                      formControlName="grade"
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      placeholder="Attained Date"
+                      bsDatepicker
+                      formControlName="attainedDate"
+                      [bsConfig]="bsConfig"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <input
+                      class="form-control form-control-sm"
+                      placeholder="Title"
+                      formControlName="title"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button
+                    class="btn btn-sm btn-outline-danger"
+                    type="button"
+                    id="btnQualification-{{ i }}"
+                    (click)="deleteQualification(i)"
+                  >
+                    <fa-icon [icon]="['fas', 'trash-alt']" size="sm"></fa-icon>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Qualification -->
+      <div class="mb-3">
+        <label for="ppr" class="form-label"
+          >Position of Progressive Responsibility</label
+        >
+        <input
+          class="form-control form-control-sm"
+          id="ppr"
+          placeholder="ppr"
+          formControlName="ppr"
+        />
+      </div>
+      <!-- Files/Chapter Six Documents -->
+      <div class="row mb-3">
+        <div class="group-gap" formArrayName="files">
+          <h5 class="mb-3">Chapter Six Documents</h5>
+          <div class="mb-3">
+            <button
+              type="button"
+              class="btn btn-sm btn-success mb-3 btn-block"
+              (click)="addFile()"
+            >
+              <fa-icon
+                [icon]="['fas', 'plus']"
+                size="sm"
+                class="mr-2"
+              ></fa-icon>
+              Add Document
+            </button>
+            <div
+              class="card mb-2"
+              *ngFor="let item of chapterSixFiles.controls; let i = index"
+              [formGroupName]="i"
+            >
+              <div class="card-body">
+                <div class="card-title">Document {{ i + 1 }}</div>
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <select
+                      class="form-select form-select-sm"
+                      placeholder="Title"
+                      formControlName="title"
+                    >
+                      <!-- <option selected>Select title</option> -->
+                      <option *ngFor="let item of allFiles" [value]="item">
+                        {{ item }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <input
+                      class="form-control form-control-sm"
+                      placeholder="File"
+                      formControlName="filename"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button
+                    class="btn btn-sm btn-outline-danger"
+                    type="button"
+                    id="btnFile-{{ i }}"
+                    (click)="deleteFile(i)"
+                  >
+                    <fa-icon [icon]="['fas', 'trash-alt']" size="sm"></fa-icon>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Files -->
+      <div>
+        <code>{{ applicationForm.value | json }}</code>
+      </div>
+    </div>
+    <div class="card-footer bg-transparent border-success">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button
+          type="button"
+          class="btn btn-default"
+          (click)="updateApplication()"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

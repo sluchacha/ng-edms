@@ -1,4 +1,4 @@
-export interface RowActionWithData<T> {
+export interface RowActionWithData {
   actionToPerfom: string;
-  rowData?: T;
+  rowData?: any;
 }
